@@ -1,0 +1,34 @@
+﻿@page
+@model CoffeeShop.Pages.RateCoffeeModel
+@{
+}
+<div class="text-center flex-column">
+    <div class="flex-row">
+        <div>
+            <img src="~/Images/JavaCoffe.png" />
+        </div>
+        <div class="flex-column">
+            @RateCoffeeModel.Coffee.Name
+        </div>
+        <div>
+            @RateCoffeeModel.Coffee.Description
+        </div>
+    </div>
+    <div>
+        <form method="post" class="text-center">
+            <label>Nadpis</label><br />
+            <input type="text" asp-for="@Model.Rating.Title" /><br />
+            <textarea asp-for="@Model.Rating.Description"></textarea><br />
+            <input type="submit" /><br />
+        </form>
+    </div>
+    <div class="flex-column">
+        @foreach (var item in Model.IndexRatings)
+        {
+            <div>
+                <p>@item.Title</p>
+                <p>@item.Description</p>
+            </div>
+        }
+    </div>
+</div>
